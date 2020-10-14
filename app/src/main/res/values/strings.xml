@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">GankAll</string>
+    <string name="main_tip">主页面</string>
+    <string name="side_tip">侧边栏</string>
+    <string name="menu_gank">Gank</string>
+    <string name="menu_about">关于</string>
+
+    <string name="about_place_holder">我是关于页面</string>
+    <string name="gank_place_holder">我是主页面</string>
+
+</resources>
