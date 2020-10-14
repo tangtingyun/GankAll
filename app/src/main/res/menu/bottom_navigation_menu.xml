@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/gank"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="@string/menu_gank" />
+    <item
+        android:id="@+id/cart"
+        android:enabled="true"
+        android:icon="@drawable/ic_list"
+        android:title="@string/menu_cart" />
+    <item
+        android:id="@+id/file"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="@string/menu_file" />
+    <item
+        android:id="@+id/about"
+        android:enabled="true"
+        android:icon="@drawable/ic_feedback"
+        android:title="@string/menu_about" />
+</menu>

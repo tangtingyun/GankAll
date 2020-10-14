@@ -3,9 +3,16 @@
     <string name="main_tip">主页面</string>
     <string name="side_tip">侧边栏</string>
     <string name="menu_gank">Gank</string>
-    <string name="menu_about">关于</string>
+    <string name="menu_cart">Cart</string>
+    <string name="menu_file">File</string>
+    <string name="menu_about">About</string>
 
     <string name="about_place_holder">我是关于页面</string>
     <string name="gank_place_holder">我是主页面</string>
+    <string name="bottom_main_text">我是另一种风格的界面</string>
+    <string name="bottom_item_style">底部导航</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
