@@ -1,5 +1,8 @@
 package com.step.gankall
 
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -13,5 +16,16 @@ class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
+    }
+
+    @Test
+    fun kotlinLaunch() {
+        GlobalScope.launch {
+
+        }
+
+        GlobalScope.async {
+
+        }
     }
 }

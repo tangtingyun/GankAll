@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<com.step.widget.CanRefreshView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#03ffff"
     tools:context="com.step.widget.WdigetActivity">
 
-    <com.step.widget.CanRefreshView
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#03ffff">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@color/colorAccent"></View>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@color/colorPrimaryDark"></View>
-    </com.step.widget.CanRefreshView>
-</androidx.appcompat.widget.LinearLayoutCompat>
+        android:layout_height="200dp"
+        android:background="@color/colorAccent"></View>
+</com.step.widget.CanRefreshView>
