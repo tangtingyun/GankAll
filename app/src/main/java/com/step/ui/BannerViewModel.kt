@@ -13,15 +13,16 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.lang.RuntimeException
 
-class UserViewModel(
+class BannerViewModel(
     private val userRepo: UserRepo
 ) : ViewModel() {
 
-    fun getUsers() = liveData {
+    fun getBanner() = liveData {
         Timber.d("${Thread.currentThread()}")
         emit(Resource.loading(data = null))
         try {
-            var data = userRepo.getUsers()
+//            throw RuntimeException("oops!! ")
+            var data = userRepo.getBanner()
             emit(Resource.success(data = data))
         } catch (exception: Exception) {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))

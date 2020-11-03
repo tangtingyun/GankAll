@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.step.gankall">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.step.ui.App"
         android:allowBackup="true"
@@ -11,13 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.step.example.TopStickActivity"></activity>
-        <activity android:name="com.step.widget.WdigetActivity">
+        <activity android:name="com.step.example.TopBannerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name="com.step.example.TopStickActivity" />
+        <activity android:name="com.step.widget.WdigetActivity">
         </activity>
         <activity android:name=".BottomMainActivity" />
         <activity android:name=".DrawMainActivity" />

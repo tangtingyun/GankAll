@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.step.data.api.ApiService
 import com.step.data.api.RetrofitBuilder
 import com.step.data.repository.UserRepo
+import com.step.ui.BannerViewModel
 import com.step.ui.UserViewModel
 
 
@@ -28,6 +29,9 @@ class AppViewModelFactory(
         return when {
             modelClass.isAssignableFrom(UserViewModel::class.java) -> {
                 UserViewModel(UserRepo(apiService))
+            }
+            modelClass.isAssignableFrom(BannerViewModel::class.java) -> {
+                BannerViewModel(UserRepo(apiService))
             }
             else -> {
                 throw IllegalArgumentException("Unknow class name ${modelClass}")

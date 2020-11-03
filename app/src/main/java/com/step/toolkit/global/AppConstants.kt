@@ -1,4 +1,4 @@
-package com.step.ktx
+package com.step.toolkit.global
 
 /*
 * Reason:  When using companion object under the hood getter and setter instance methods are created for

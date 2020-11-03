@@ -1,4 +1,4 @@
-package com.step.ktx
+package com.step.toolkit.util.appinfo
 
 import android.app.ActivityManager
 import android.app.Application
@@ -18,19 +18,24 @@ object AppInfoUtils {
         }
 
         //1)通过Application的API获取当前进程名
-        currentProcessName = getCurrentProcessNameByApplication();
+        currentProcessName =
+            getCurrentProcessNameByApplication();
         if (!TextUtils.isEmpty(currentProcessName)) {
             return currentProcessName;
         }
 
         //2)通过反射ActivityThread获取当前进程名
-        currentProcessName = getCurrentProcessNameByActivityThread();
+        currentProcessName =
+            getCurrentProcessNameByActivityThread();
         if (!TextUtils.isEmpty(currentProcessName)) {
             return currentProcessName;
         }
 
         //3)通过ActivityManager获取当前进程名
-        currentProcessName = getCurrentProcessNameByActivityManager(context);
+        currentProcessName =
+            getCurrentProcessNameByActivityManager(
+                context
+            );
 
         return currentProcessName;
     }

@@ -10,7 +10,6 @@ import com.step.ui.base.viewModelsByApp
 import timber.log.Timber
 
 class WdigetActivity : AppCompatActivity() {
-    val userViewModel: UserViewModel by viewModelsByApp()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,21 +20,6 @@ class WdigetActivity : AppCompatActivity() {
 
     override fun onUserInteraction() {
         super.onUserInteraction()
-        Timber.d("$userViewModel")
-        userViewModel.getUsers().observe(this) { resource ->
-            when (resource.status) {
-                Status.SUCCESS -> {
-                    Timber.d("Status.SUCCESS:  ${resource.data}")
-                }
-                Status.ERROR -> {
-                    Timber.d("Status.ERROR:  ${resource.message}")
-                }
-                Status.LOADING -> {
-                    Timber.d("Status.LOADING")
-                }
-            }
-        }
-
     }
 
     private fun testResourses() {
