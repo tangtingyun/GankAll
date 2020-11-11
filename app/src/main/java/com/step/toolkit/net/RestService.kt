@@ -15,26 +15,30 @@ interface RestService {
     @GET
     fun get(
         @Url url: String?,
-        @QueryMap params: WeakHashMap<String, Any>?
+        @QueryMap params: WeakHashMap<String, Any>?,
+        @HeaderMap headers: WeakHashMap<String, Any>?
     ): Call<String>
 
     @FormUrlEncoded
     @POST
     fun post(
         @Url url: String?,
-        @FieldMap params: WeakHashMap<String, Any>?
+        @FieldMap params: WeakHashMap<String, Any>?,
+        @HeaderMap headers: WeakHashMap<String, Any>?
     ): Call<String>
 
     @FormUrlEncoded
     fun put(
         @Url url: String?,
-        @QueryMap params: WeakHashMap<String, Any>?
+        @QueryMap params: WeakHashMap<String, Any>?,
+        @HeaderMap headers: WeakHashMap<String, Any>?
     ): Call<String>
 
     @DELETE
     fun delete(
         @Url url: String?,
-        @QueryMap params: WeakHashMap<String, Any>?
+        @QueryMap params: WeakHashMap<String, Any>?,
+        @HeaderMap headers: WeakHashMap<String, Any>?
     ): Call<String>
 
     //不会一次性把文件下载到内存里，而是下载一部分就写一部分
@@ -42,11 +46,13 @@ interface RestService {
     @GET
     fun download(
         @Url url: String?,
-        @QueryMap params: WeakHashMap<String, Any>?
+        @QueryMap params: WeakHashMap<String, Any>?,
+        @HeaderMap headers: WeakHashMap<String, Any>?
     ): Call<ResponseBody>
 
     fun upload(
         @Url url: String?,
-        @Part file: MultipartBody.Part?
+        @Part file: MultipartBody.Part?,
+        @HeaderMap headers: WeakHashMap<String, Any>?
     ): Call<String>
 }

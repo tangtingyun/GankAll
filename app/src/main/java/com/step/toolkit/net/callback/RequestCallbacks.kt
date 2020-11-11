@@ -11,11 +11,8 @@ import retrofit2.Response
 
 
 class RequestCallbacks(
-    private val request: IRequest?,
     private val success: ISuccess?,
-    private val failure: IFailure?,
     private val error: IError?,
-    private val complete: IComplete?,
     private val showLoading: Boolean
 ) : Callback<String> {
 
@@ -48,8 +45,7 @@ class RequestCallbacks(
     }
 
     override fun onFailure(call: Call<String>, t: Throwable) {
-        failure?.onFailure()
-        request?.onRequestEnd()
+        error?.onError(0, t.message ?: t.localizedMessage)
     }
 
     companion object {

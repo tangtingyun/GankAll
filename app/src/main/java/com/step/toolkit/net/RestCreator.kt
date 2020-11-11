@@ -25,9 +25,6 @@ object RestCreator {
     }
 
     private object RetrofitHolder {
-        //http://demo.com/
-        //http://demo.com/name...
-        //name...
         //从全局的配置中取出baseUrl
         private val BASE_URL =
             AppConfig.getConfiguration<String>(GlobalKeys.API_HOST)

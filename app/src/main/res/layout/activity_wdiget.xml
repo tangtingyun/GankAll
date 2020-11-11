@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.step.widget.CanRefreshView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#03ffff"
-    tools:context="com.step.widget.WdigetActivity">
+    android:orientation="vertical"
+    tools:context="com.step.example.widget.WdigetActivity">
 
-    <View
+    <com.step.example.widget.refresh.PullRefreshRecyclerView
+        android:id="@+id/pull_refresh"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/colorAccent"></View>
-</com.step.widget.CanRefreshView>
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:visibility="gone" />
+
+    <com.step.example.widget.recyclerview.RecyclerView
+        android:id="@+id/table"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

@@ -73,6 +73,62 @@ class TopStickActivity : AppCompatActivity() {
             holder.bindData(position)
         }
 
+        override fun onBindViewHolder(
+            holder: StickHolder,
+            position: Int,
+            payloads: MutableList<Any>
+        ) {
+            super.onBindViewHolder(holder, position, payloads)
+        }
+
+        override fun onViewAttachedToWindow(holder: StickHolder) {
+            super.onViewAttachedToWindow(holder)
+        }
+
+        override fun onViewDetachedFromWindow(holder: StickHolder) {
+            super.onViewDetachedFromWindow(holder)
+        }
+
+        override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+            super.onAttachedToRecyclerView(recyclerView)
+        }
+
+        override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
+            super.onDetachedFromRecyclerView(recyclerView)
+        }
+
+        override fun onViewRecycled(holder: StickHolder) {
+            super.onViewRecycled(holder)
+        }
+
+
+        override fun onFailedToRecycleView(holder: StickHolder): Boolean {
+            return super.onFailedToRecycleView(holder)
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        override fun getItemId(position: Int): Long {
+            return super.getItemId(position)
+        }
+
+        override fun setHasStableIds(hasStableIds: Boolean) {
+            super.setHasStableIds(hasStableIds)
+        }
+
+        override fun getItemViewType(position: Int): Int {
+            return super.getItemViewType(position)
+        }
+
     }
 
 
@@ -86,5 +142,6 @@ class TopStickActivity : AppCompatActivity() {
         fun bindData(position: Int) {
             mTextViewName.text = "详情 - $position"
         }
+
     }
 }

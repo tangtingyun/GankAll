@@ -13,12 +13,10 @@ import java.util.*
 class RestClient internal constructor(
     private val url: String?,
     private val params: WeakHashMap<String, Any>?,
-    private val request: IRequest?,
+    private val headers: WeakHashMap<String, Any>?,
     private val success: ISuccess?,
-    private val failure: IFailure?,
     private val error: IError?,
-    private val complete: IComplete?,
-    private val context: Context?,
+    private val context: Context,
     private val showLoading: Boolean
 ) {
 
@@ -28,20 +26,19 @@ class RestClient internal constructor(
         }
     }
 
-    private suspend fun request(method: HttpMethod) {
+    private fun request(method: HttpMethod) {
         val service = RestCreator.restService
         val call: Call<String>?
-        request?.onRequestStart()
 
         if (showLoading) {
             Loader.showLoading(context);
         }
         call = when (method) {
 
-            HttpMethod.GET -> service.get(url, params)
-            HttpMethod.POST -> service.post(url, params)
-            HttpMethod.PUT -> service.put(url, params)
-            HttpMethod.DELETE -> service.delete(url, params)
+            HttpMethod.GET -> service.get(url, params, headers)
+            HttpMethod.POST -> service.post(url, params, headers)
+            HttpMethod.PUT -> service.put(url, params, headers)
+            HttpMethod.DELETE -> service.delete(url, params, headers)
             //以下先不实现
             HttpMethod.UPLOAD -> TODO()
             HttpMethod.DOWNLOAD -> TODO()
@@ -51,21 +48,21 @@ class RestClient internal constructor(
     }
 
     private val requestCallback: Callback<String>
-        get() = RequestCallbacks(request, success, failure, error, complete, showLoading)
+        get() = RequestCallbacks(success, error, showLoading)
 
-    suspend fun get() {
+    fun get() {
         request(HttpMethod.GET)
     }
 
-    suspend fun post() {
+    fun post() {
         request(HttpMethod.POST)
     }
 
-    suspend fun put() {
+    fun put() {
         request(HttpMethod.PUT)
     }
 
-    suspend fun delete() {
+    fun delete() {
         request(HttpMethod.DELETE)
     }
 }

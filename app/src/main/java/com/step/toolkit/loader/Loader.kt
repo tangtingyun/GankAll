@@ -5,7 +5,7 @@ import android.view.Gravity
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDialog
 import com.step.gankall.R
-import com.step.toolkit.util.size.DimenUtil
+import com.step.toolkit.util.size.PixUtils
 import timber.log.Timber
 
 object Loader {
@@ -14,15 +14,15 @@ object Loader {
     private val LOADERS: ArrayList<AppCompatDialog> =
         ArrayList()
 
-    fun showLoading(context: Context?) {
+    fun showLoading(context: Context) {
+        var loadingDialog = LoadingDialog(context)
+        loadingDialog.setLoadingText(context.getString(R.string.app_name))
+        loadingDialog.setCanceledOnTouchOutside(false)
+        loadingDialog.setCancelable(false)
 
-        var appCompatDialog = AppCompatDialog(context, R.style.LoadingDialog2)
-        appCompatDialog.setContentView(TextView(context))
-
-
-        val deviceWidth = DimenUtil.getScreenWidth()
-        val deviceHeight = DimenUtil.getScreenHeight()
-        appCompatDialog.window?.apply {
+        val deviceWidth = PixUtils.getScreenWidth()
+        val deviceHeight = PixUtils.getScreenHeight()
+        loadingDialog.window?.apply {
             with(attributes) {
                 width = deviceWidth / LOADER_SIZE_SCALE
                 height = deviceHeight / LOADER_SIZE_SCALE
@@ -34,14 +34,14 @@ object Loader {
                 Timber.d("${deviceWidth / LOADER_SIZE_SCALE}")
             }
         }
-        LOADERS.add(appCompatDialog)
-        appCompatDialog.show()
+        LOADERS.add(loadingDialog)
+        loadingDialog.show()
     }
 
     fun stopLoading() {
         LOADERS.forEach { dialog ->
             dialog.apply {
-                if (dialog.isShowing) {
+                if (dialog != null && dialog.isShowing) {
                     dialog.cancel()
                 }
             }

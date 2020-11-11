@@ -1,7 +1,7 @@
 package com.step.gankall
 
-import com.step.data.api.RetrofitBuilder
-import com.step.data.repository.ProgressResponseBody
+import com.step.example.data.api.RetrofitBuilder
+import com.step.example.data.repository.ProgressResponseBody
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -9,12 +9,9 @@ import kotlinx.coroutines.runBlocking
 import okhttp3.ResponseBody
 import org.junit.Test
 
-import org.junit.Assert.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.await
-import timber.log.Timber
 import java.util.concurrent.CountDownLatch
 
 /**
@@ -26,7 +23,7 @@ class ExampleUnitTest {
 
     @Test
     fun mockProgress3() {
-        // public abstract retrofit2.Call com.step.data.api.ApiService.downloadUsers2(java.lang.String)
+        // public abstract retrofit2.Call com.step.example.data.api.ApiService.downloadUsers2(java.lang.String)
         // (Ljava/lang/String;)Lretrofit2/Call<Lokhttp3/ResponseBody;>;
         var downloadUsers =
             RetrofitBuilder.apiService.downloadUsers2("https://gank.io/api/v2/banners")
@@ -67,10 +64,10 @@ class ExampleUnitTest {
     fun mockProgress() {
         runBlocking {
 
-            // public abstract retrofit2.Call com.step.data.api.ApiService.downloadUsers2(java.lang.String)
+            // public abstract retrofit2.Call com.step.example.data.api.ApiService.downloadUsers2(java.lang.String)
             // (Ljava/lang/String;)Lretrofit2/Call<Lokhttp3/ResponseBody;>;
 
-            //  public abstract java.lang.Object com.step.data.api.ApiService.downloadUsers(java.lang.String,kotlin.coroutines.Continuation)
+            //  public abstract java.lang.Object com.step.example.data.api.ApiService.downloadUsers(java.lang.String,kotlin.coroutines.Continuation)
             //  (Ljava/lang/String;Lkotlin/coroutines/Continuation<-Lretrofit2/Call<Lokhttp3/ResponseBody;>;>;)Ljava/lang/Object;
 
             // http://file-jz.jingzhou.fuxing.palmyou.com/file/downloadFile?fileName=/jzapp/tomcat8070/templatefile/3117a12b43e7429c8d8bef270b61fe3a.txt
