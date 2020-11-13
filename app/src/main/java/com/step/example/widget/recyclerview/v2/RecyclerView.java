@@ -291,7 +291,7 @@ public class RecyclerView  extends ViewGroup {
         recycler.putRecycledView(viewHolder,typeView);
         removeView(viewHolder.getItemView());
     }
-    interface Adapter<VH extends ViewHolder> {
+    public interface Adapter<VH extends ViewHolder> {
         VH onCreateViewHolder(ViewGroup parent, int viewType);
         VH  onBindViewHolder(VH viewHodler, int position);
         //Item的类型

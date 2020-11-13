@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.step.example.widget.recyclerview.v2.RecyclerView;
 import com.step.example.widget.recyclerview.v2.ViewHolder;
+import com.step.example.widget.screenadapter.UIUtils;
 import com.step.gankall.R;
 
 public class WidgetJavaActivity extends AppCompatActivity {
@@ -27,6 +28,7 @@ public class WidgetJavaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_widget_java);
         recyclerView = findViewById(R.id.table2);
         recyclerView.setAdapter(new MyAdapter(this, 50));
+        new UIUtils(this).test(this);
     }
 
     class MyAdapter implements RecyclerView.Adapter<MyViewHolder> {
