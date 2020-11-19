@@ -10,6 +10,23 @@
         android:id="@+id/table2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clickable="true"></com.step.example.widget.recyclerview.v2.RecyclerView>
+        android:clickable="true"
+        android:visibility="invisible" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recy_native"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible" />
+
+    <com.step.example.widget.text.ColorText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#55ffaaee"
+        android:visibility="invisible" />
+
+    <com.step.example.widget.transfrom.TransfromImage
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible" />
 </RelativeLayout>

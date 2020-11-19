@@ -1,6 +1,7 @@
 package com.step.example.widget;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -12,10 +13,22 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.step.example.widget.douyin.DouYinAdapter;
+import com.step.example.widget.douyin.DouYinLayoutManager;
+import com.step.example.widget.layoutmanager.AutoLayoutManager;
+import com.step.example.widget.layoutmanager.CardConfig;
+import com.step.example.widget.layoutmanager.Myadapter;
+import com.step.example.widget.layoutmanager.SlideCallback;
+import com.step.example.widget.layoutmanager.SlideCardBean;
+import com.step.example.widget.layoutmanager.SlideCardLayoutManager;
+import com.step.example.widget.layoutmanager.adapter.UniversalAdapter;
 import com.step.example.widget.recyclerview.v2.RecyclerView;
 import com.step.example.widget.recyclerview.v2.ViewHolder;
 import com.step.example.widget.screenadapter.UIUtils;
 import com.step.gankall.R;
+
+import java.util.List;
 
 public class WidgetJavaActivity extends AppCompatActivity {
 
@@ -26,6 +39,51 @@ public class WidgetJavaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_widget_java);
+//        setUp1();
+//        setUp2();
+//        setUp3();
+        setUp4();
+    }
+
+    private void setUp4() {
+        androidx.recyclerview.widget.RecyclerView recyclerView = findViewById(R.id.recy_native);
+        recyclerView.setLayoutManager(new DouYinLayoutManager(this));
+        recyclerView.setAdapter(new DouYinAdapter());
+    }
+
+
+    private void setUp3() {
+        androidx.recyclerview.widget.RecyclerView recyclerView = findViewById(R.id.recy_native);
+        recyclerView.setLayoutManager(new SlideCardLayoutManager());
+
+        List<SlideCardBean> mDatas = SlideCardBean.initDatas();
+        UniversalAdapter adapter = new UniversalAdapter<SlideCardBean>(this, mDatas, R.layout.item_swipe_card) {
+
+            @Override
+            public void convert(com.step.example.widget.layoutmanager.adapter.ViewHolder viewHolder, SlideCardBean slideCardBean) {
+                viewHolder.setText(R.id.tvName, slideCardBean.getName());
+                viewHolder.setText(R.id.tvPrecent, slideCardBean.getPostition() + "/" + mDatas.size());
+                Glide.with(WidgetJavaActivity.this)
+                        .load(slideCardBean.getUrl())
+                        .into((ImageView) viewHolder.getView(R.id.iv));
+            }
+        };
+        recyclerView.setAdapter(adapter);
+        // 初始化数据
+        CardConfig.initConfig(this);
+
+        SlideCallback slideCallback = new SlideCallback(recyclerView, adapter, mDatas);
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(slideCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
+    }
+
+    private void setUp2() {
+        androidx.recyclerview.widget.RecyclerView recyclerView = findViewById(R.id.recy_native);
+        recyclerView.setLayoutManager(new AutoLayoutManager());
+        recyclerView.setAdapter(new Myadapter());
+    }
+
+    private void setUp1() {
         recyclerView = findViewById(R.id.table2);
         recyclerView.setAdapter(new MyAdapter(this, 50));
         new UIUtils(this).test(this);
